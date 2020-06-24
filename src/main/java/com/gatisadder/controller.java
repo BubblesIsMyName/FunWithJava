@@ -5,6 +5,13 @@ import com.gatisadder.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.concurrent.TimeUnit;
+/*
+Controller class is responsible for linking the model
+and view class. Neither of them though about one another.
+
+The view can then be changed and not affect the model logic which
+in our case is for counting up to AMX and MIN.
+*/
 
 public class controller implements ActionListener
 {

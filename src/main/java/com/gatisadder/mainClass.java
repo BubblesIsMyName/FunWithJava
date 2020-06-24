@@ -1,6 +1,9 @@
 package com.gatisadder;
 
 import com.gatisadder.*;
+/*
+Input class for starting the program
+*/
 
 public class mainClass
 {

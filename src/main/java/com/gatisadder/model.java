@@ -3,6 +3,11 @@ package com.gatisadder;
 
 import com.gatisadder.*;
 
+/*
+Model class only knows about the count variable
+no idea what it is used for at all
+*/
+
 public class model {
 
     private int count;

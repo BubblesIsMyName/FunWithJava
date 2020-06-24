@@ -16,6 +16,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/*
+Separated UI from the logic of count,
+if a button is clicked controller decides what
+occurs, label on view can still contain 
+count value but if I decide to change view design 
+it won't affect model
+*/
+
 public class view {
 
     private JLabel label;
