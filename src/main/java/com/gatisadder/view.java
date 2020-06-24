@@ -2,13 +2,13 @@
 
 package com.gatisadder;
 
+import com.gatisadder.*;
 
 import java.awt.BorderLayout;
 import java.awt.Window;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -16,37 +16,32 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class clickerGUI implements ActionListener {
+public class view {
 
-    private int count = 0;
-    private JLabel lable;
+    private JLabel label;
     private JFrame frame;
-    private JPanel panel;
     private JButton buttonUp, buttonDown;
-    // private Dimension frameMinimumSize;
 
-    public clickerGUI() {
+
+    public view() {
 
         // frame is essentially the window.
         frame = new JFrame();
         // Add the buttons
-        buttonUp = new JButton("+");
-        buttonUp.addActionListener((ActionListener) this);
-        buttonDown = new JButton("-");
-        buttonDown.addActionListener(this);
+        buttonUp = new JButton(constants.kUp);
+        buttonDown = new JButton(constants.kDown);
         
         // Create label
-        lable = new JLabel("count = 0");
+        label = new JLabel();
         // Create pannel
-        panel = new JPanel();
+        JPanel panel = new JPanel();
         
         // Setup border
-        System.out.println("Pannel size is" + panel.getSize());
         panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
         // Setup layout
         panel.setLayout(new GridLayout(3, 1));
         // Add lable
-        panel.add(lable);
+        panel.add(label);
         // Add buttons to pannel
         panel.add(buttonUp);
         panel.add(buttonDown);
@@ -61,21 +56,26 @@ public class clickerGUI implements ActionListener {
 
     }
 
-    public static void main(String[] args) {
-        new clickerGUI();
+    public void setLabel(int text) {
+        label.setText("Count: " + text);
     }
 
-    
-    @Override
-    public void actionPerformed(ActionEvent e) {
-       if(e.getSource() == buttonUp){
-        count++;
-        if(count > 100) count = 0;
-        lable.setText("count = " + count);
-    } else if (e.getSource() == buttonDown) {
-        count--;
-        if(count < 0) count = 100;
-        lable.setText("count = " + count);
-       }
+    public void addController(ActionListener listenerButtons) {
+        buttonUp.addActionListener(listenerButtons);
+        buttonUp.setActionCommand(constants.kUp);
+
+        buttonDown.addActionListener(listenerButtons);
+        buttonDown.setActionCommand(constants.kDown);
+    }
+
+    public void close() {
+        frame.dispose();
+    }
+
+    public static class CloseListener extends WindowAdapter {
+        public void windowClosing(WindowEvent e) {
+            e.getWindow().setVisible(false);
+            System.exit(0);
+        }
     }
 }
