@@ -7,3 +7,5 @@ To build:
 `'mvn install'`
 
 `'java -jar target/clicker-1.0..jar'`
+
+Product of BubblesIsMyName
