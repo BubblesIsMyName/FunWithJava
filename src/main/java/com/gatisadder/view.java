@@ -28,7 +28,7 @@ public class view {
 
     private JLabel label;
     private JFrame frame;
-    private JButton buttonUp, buttonDown;
+    private JButton buttonUp, buttonDown, buttonReset;
 
 
     public view() {
@@ -38,6 +38,7 @@ public class view {
         // Add the buttons
         buttonUp = new JButton(constants.kUp);
         buttonDown = new JButton(constants.kDown);
+        buttonReset = new JButton(constants.kReset);
         
         // Create label
         label = new JLabel();
@@ -47,12 +48,13 @@ public class view {
         // Setup border
         panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
         // Setup layout
-        panel.setLayout(new GridLayout(3, 1));
+        panel.setLayout(new GridLayout(4, 1));
         // Add lable
         panel.add(label);
         // Add buttons to pannel
         panel.add(buttonUp);
         panel.add(buttonDown);
+        panel.add(buttonReset);
         
         // Add elements
         frame.add(panel, BorderLayout.CENTER);
@@ -74,6 +76,9 @@ public class view {
 
         buttonDown.addActionListener(listenerButtons);
         buttonDown.setActionCommand(constants.kDown);
+
+        buttonReset.addActionListener(listenerButtons);
+        buttonReset.setActionCommand(constants.kReset);    
     }
 
     public void close() {

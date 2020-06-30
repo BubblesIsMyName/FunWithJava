@@ -32,6 +32,11 @@ public class model {
         return count;
     }
 
+    public int resetCounter(){
+        count = MIN;
+        return count;
+    }
+
     public int initModel(int init) {
         if(init <= MAX && init >= MIN) {
             count = init;

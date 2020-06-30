@@ -39,6 +39,9 @@ public class controller implements ActionListener
             case constants.kDown:
                 _view.setLabel(_model.minusNumber());
                 break;
+            case constants.kReset:
+                _view.setLabel(_model.resetCounter());
+                break;
             default:
                 System.out.println("WTF happened here");
                 break;
